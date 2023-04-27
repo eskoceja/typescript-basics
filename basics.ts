@@ -69,7 +69,7 @@ function findBookById(id: number): Book | undefined {
   return undefined;
 }
 
-// Define a function updateBook(book: Book): boolean that takes a Book object as a parameter,
+// DONE - Define a function updateBook(book: Book): boolean that takes a Book object as a parameter,
 //finds the book with the same id in the books array, and updates its properties.
 //The function should return true if the book was updated successfully or false if the book was not found.
 function updateBook(book: Book): boolean {
@@ -82,7 +82,7 @@ function updateBook(book: Book): boolean {
   return false;
 }
 
-// Define a function removeBook(id: number): boolean that takes a book id as a parameter and
+// DONE - Define a function removeBook(id: number): boolean that takes a book id as a parameter and
 //removes the book with the given id from the books array.
 //The function should return true if the book was removed successfully or false if the book was not found.
 function removeBook(id: number): boolean {
@@ -95,5 +95,40 @@ function removeBook(id: number): boolean {
   return false;
 }
 
-// Test your functions by adding, updating, and removing books, and finding books by their id.
-console.log(books)
+// TESTING
+console.log("Array of books before changes: ");
+console.log(books);
+console.log("");
+
+//adding book
+addBook({
+  id: 6,
+  title: "Jane Eyre",
+  author: "Charlotte Bronte",
+  published: new Date("1847-08-19"),
+  available: true,
+});
+console.log("Array of books after adding Jane Eyre: ");
+console.log(books);
+console.log("");
+
+//updating availability 
+const bookToUpdate = findBookById(1);
+if (bookToUpdate) {
+  bookToUpdate.available = false;
+  updateBook(bookToUpdate);
+}
+console.log("Updated book 1 to false in availability: ");
+console.log(books);
+console.log("");
+
+//removing book
+removeBook(3);
+console.log("Array of books after removing book 3: ");
+console.log(books);
+console.log("");
+
+//finding book by id
+const bookToFind = findBookById(2);
+console.log("Finding book 2 only: ");
+console.log(bookToFind);
